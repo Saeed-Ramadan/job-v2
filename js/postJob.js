@@ -33,7 +33,7 @@ form.addEventListener("submit", async (e) => {
     //  const logoFormData = new formData();
     //  logoFormData.set("logo" , formData.get("logo").files[0]);
 
-    const res = fetch(`${API_ROOT}/jobs`, {
+    const res = await  fetch(`${API_ROOT}/jobs`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -53,9 +53,28 @@ form.addEventListener("submit", async (e) => {
             "vacancy": 3
         }),
         
+        
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log('Success:', data);
+      redirect('index.html');
+    })
+    .catch((error) => {
+      console.error('Error:', error);
     });
 
-     const datares = await res.json();
-     if(!res.ok) return alert(datares.message);
-     alert(`job ${datares.data.title} created successfully`);
+    //  const datares = await res.json();
+    //  if(!res.ok) return alert(datares.message);
+    //  redirect('index.html');
 })
+
+
+//to redirect to home page
+
+function redirect (url){
+    'use strict';
+    if(url !== ''){
+        window.location= url;
+    }
+}
