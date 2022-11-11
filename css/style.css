@@ -141,6 +141,12 @@ body {
   max-width: 450px;
 }
 
+@media (max-width: 600px){
+  .hero .hero-img {
+    max-width: 300px;
+  }
+}
+
 .hero .hero-data #job-number p {
   height: 45px;
   font-family: cursive;
@@ -234,7 +240,7 @@ body {
 
 #job-view {
   list-style: none;
-  margin-left: 100px;
+/*   margin-left: 100px; */
 }
 
 .body-container .job-data {
